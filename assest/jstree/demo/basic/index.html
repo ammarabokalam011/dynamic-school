@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jstree basic demos</title>
+	<style>
+	html { margin:0; padding:0; font-size:62.5%; }
+	body { max-width:800px; min-width:300px; margin:0 auto; padding:20px 10px; font-size:14px; font-size:1.4em; }
+	h1 { font-size:1.8em; }
+	.demo { overflow:auto; border:1px solid silver; min-height:100px; }
+	</style>
+	<link rel="stylesheet" href="/dist/themes/default/style.min.css" />
+</head>
+<body>
+	<h1>AJAX demo</h1>
+	<input id="search-input" class="search-input" />
+	<div id="ajax" class="demo"></div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="./../../dist/jstree.min.js"></script>
+
+	<script>
+	// ajax demo
+	$('#ajax').jstree({
+
+            "plugins" : [ "themes", "html_data", "checkbox", "sort", "ui" ,"search"],
+			"search": {
+				"case_sensitive": false,
+				"show_only_matches": true
+			}
+			,'core' : {
+					'data' : {
+						"url" : "./root.json",
+						"dataType" : "json" // needed only if you do not supply JSON headers
+					}
+				}
+
+    }).bind("loaded.jstree", function(event, data) {
+        $(this).jstree("open_all");
+    });;
+    $(document).ready(function () {
+        $(".search-input").keyup(function () {
+            var searchString = $(this).val();
+            $('#ajax').jstree('search', searchString);
+        });
+    });
+	// lazy demo
+
+	</script>
+</body>
+</html>
