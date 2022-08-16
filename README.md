@@ -1,5 +1,4 @@
-Grocery CRUD
-=============
-Grocery CRUD is a PHP and Codeigniter Framework library that creates a full functional CRUD system without the need to customise JavaScript or CSS.
+#dynamic-school
+------------------ 
 
-For more information, visit http://www.grocerycrud.com
+a website based on codeigniter that provide content to student based on their level on each subject
